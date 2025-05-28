@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getProductById, updateProduct } from "../Api/ProductApi"; // adjust path if needed
+import { getProductById, updateProduct } from "../Api/ProductApi";
 import "./Edit.css";
 
 const EditProduct: React.FC = () => {

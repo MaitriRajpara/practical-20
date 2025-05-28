@@ -1,7 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import type { ReactNode } from "react";
 
-// Define the user type
 interface User {
   email: string;
 }
@@ -19,8 +18,6 @@ export const AuthContext = createContext<AuthContextType | undefined>(
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
-
-  // Load user from localStorage on first load
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {

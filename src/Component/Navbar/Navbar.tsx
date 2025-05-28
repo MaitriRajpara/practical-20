@@ -20,7 +20,7 @@ const Navbar: React.FC<NavbarProps> = ({
   const navigate = useNavigate();
 
   const handleAddProductClick = () => {
-    navigate("/add-product"); // navigate to your add product route
+    navigate("/add-product"); 
   };
   
   return (

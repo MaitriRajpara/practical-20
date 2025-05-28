@@ -1,7 +1,5 @@
-// src/App.tsx
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import ProtectedRoute from "./Component/Auth/ProtectedRoute";
 import Login from "./Component/Auth/Login";
 import Signup from "./Component/Auth/SignUp";
@@ -13,11 +11,8 @@ const App: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Public routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-
-        {/* Protected routes */}
         <Route element={<ProtectedRoute />}>
           <Route path="/products" element={<Products />} />
           <Route path="/" element={<Products />} />

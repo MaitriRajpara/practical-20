@@ -1,14 +1,8 @@
 import React from "react";
+import type { NavbarProps } from "../../Types/type";
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
-interface NavbarProps {
-  searchQuery: string;
-  onSearchChange: (value: string) => void;
-  sortBy: string;
-  onSortChange: (value: string) => void;
-  onAddProductClick: () => void;
-}
 
 const Navbar: React.FC<NavbarProps> = ({
   searchQuery,

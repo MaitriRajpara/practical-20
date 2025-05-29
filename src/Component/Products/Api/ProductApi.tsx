@@ -1,12 +1,4 @@
-// src/api/productApi.ts
-
-export interface ProductType {
-  id: string;
-  title: string;
-  description: string;
-  price: string;
-  image: string;
-}
+import type { ProductType } from "../../../Types/type";
 
 const API_URL =
   "https://6836f14b664e72d28e42ccbb.mockapi.io/Ecom/tanstack/product";

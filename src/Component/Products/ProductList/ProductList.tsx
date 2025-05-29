@@ -6,7 +6,7 @@ import {
   getAllProducts,
   deleteProduct
 } from "../Api/ProductApi";
-import type { ProductType } from "../Api/ProductApi"
+import type { ProductType } from "../../../Types/type"
 
 const Product: React.FC = () => {
   const [products, setProducts] = useState<ProductType[]>([]);

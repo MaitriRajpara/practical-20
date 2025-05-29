@@ -2,11 +2,8 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../../Navbar/Navbar";
 import "./product.css";
 import { useNavigate, Link } from "react-router-dom";
-import {
-  getAllProducts,
-  deleteProduct
-} from "../Api/ProductApi";
-import type { ProductType } from "../../../Types/type"
+import { getAllProducts, deleteProduct } from "../Api/ProductApi";
+import type { ProductType } from "../../../Types/type";
 
 const Product: React.FC = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
@@ -64,6 +61,7 @@ const Product: React.FC = () => {
         onSearchChange={setSearchQuery}
         sortBy={sortBy}
         onSortChange={(val) => setSortBy(val as "name" | "price")}
+        onAddProductClick={() => navigate("/add-product")}
       />
       <div className="product-container">
         {filteredProducts.length === 0 ? (

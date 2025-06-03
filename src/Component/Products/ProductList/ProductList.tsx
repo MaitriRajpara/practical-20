@@ -8,7 +8,9 @@ import type { ProductType } from "../../../Types/type";
 const Product: React.FC = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [sortBy, setSortBy] = useState<"name" | "price">("name");
+  const [sortBy, setSortBy] = useState<
+    "none" | "name-asc" | "name-desc" | "price-asc" | "price-desc"
+  >("none");
   const navigate = useNavigate();
 
   // Fetch products
@@ -43,10 +45,17 @@ const Product: React.FC = () => {
       product.title.toLowerCase().includes(searchQuery.toLowerCase())
     )
     .sort((a, b) => {
-      if (sortBy === "name") {
-        return a.title.localeCompare(b.title);
-      } else {
-        return Number(a.price) - Number(b.price);
+      switch (sortBy) {
+        case "name-asc":
+          return a.title.localeCompare(b.title);
+        case "name-desc":
+          return b.title.localeCompare(a.title);
+        case "price-asc":
+          return Number(a.price) - Number(b.price);
+        case "price-desc":
+          return Number(b.price) - Number(a.price);
+        default:
+          return 0;
       }
     });
 
@@ -60,7 +69,11 @@ const Product: React.FC = () => {
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
         sortBy={sortBy}
-        onSortChange={(val) => setSortBy(val as "name" | "price")}
+        onSortChange={(val) =>
+          setSortBy(
+            val as "name-asc" | "name-desc" | "price-asc" | "price-desc"
+          )
+        }
         onAddProductClick={() => navigate("/add-product")}
       />
       <div className="product-container">

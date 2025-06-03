@@ -5,8 +5,8 @@ export interface User {
 export interface NavbarProps {
   searchQuery: string;
   onSearchChange: (value: string) => void;
-  sortBy: string;
-  onSortChange: (value: string) => void;
+  sortBy: "none" | "name-asc" | "name-desc" | "price-asc" | "price-desc";
+  onSortChange: (value: "none" | "name-asc" | "name-desc" | "price-asc" | "price-desc") => void;
   onAddProductClick: () => void;
 }
 
